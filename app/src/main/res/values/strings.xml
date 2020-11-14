@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Yeskart</string>
+    <string-array name="product_category_list">
+        <item>Painting</item>
+        <item>Handicrafts</item>
+        <item>Other</item>
+    </string-array>
 </resources>

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +37,26 @@ public class RegisterActivity extends AppCompatActivity {
     Button registerButton;
     private ProgressDialog loading;
     private FirebaseFirestore db;
+    private boolean isBuyer = true;
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch (view.getId()) {
+            case R.id.register_buyer:
+                if(checked) {
+                    isBuyer = true;
+                }
+                break;
+
+            case R.id.register_seller:
+                if(checked) {
+                    isBuyer = false;
+                }
+                break;
+
+        }
+    }
 
     public void createAccount() {
         String email,name,password, mobileNo;
@@ -131,7 +152,7 @@ public class RegisterActivity extends AppCompatActivity {
         user.put("mobileNo", mobileNo);
         user.put("email", email);
         user.put("password", password);
-
+        user.put("isBuyer", isBuyer);
 
         db.collection("users")
                 .add(user)
@@ -141,7 +162,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Succesfully added user", Toast.LENGTH_SHORT).show();
                         Log.d("Msg", "DocumentSnapshot added with ID: " + documentReference.getId());
 
-                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                     }
                 })

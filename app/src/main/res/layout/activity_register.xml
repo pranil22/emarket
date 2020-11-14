@@ -11,7 +11,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:text="YesKart"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -35,14 +35,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
         android:layout_below="@id/register_slogan"
-        android:padding="15dp"
+        android:padding="12dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
         android:hint="Full Name"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="17sp"
+        android:textSize="12sp"
         />
 
 
@@ -52,17 +52,34 @@
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
         android:layout_below="@id/register_full_name"
-        android:padding="15dp"
+        android:padding="12dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:inputType="number"
         android:hint="Mobile number"
+        android:textSize="12sp"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="17sp"
         />
 
+
+    <EditText
+        android:id="@+id/register_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_design"
+        android:textSize="12sp"
+        android:layout_below="@id/register_mobile_no"
+        android:padding="12dp"
+        android:inputType="textMultiLine"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:hint="Address"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        />
 
 
     <EditText
@@ -70,15 +87,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
-        android:layout_below="@id/register_mobile_no"
-        android:padding="15dp"
+        android:layout_below="@id/register_address"
+        android:textSize="12sp"
+        android:padding="12dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Email"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="17sp"
         />
 
     <EditText
@@ -87,17 +104,46 @@
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
         android:layout_below="@id/register_email"
-        android:padding="15dp"
+        android:padding="12dp"
+        android:textSize="12sp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Password"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="17sp"
         android:inputType="textPassword"
         />
 
+    <RadioGroup
+        android:id="@+id/register_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/register_password">
+        <RadioButton
+            android:id="@+id/register_buyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buyer"
+            android:checked="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="onRadioButtonClicked"
+            android:buttonTint="@color/colorPrimaryDark"
+            />
+        <RadioButton
+            android:id="@+id/register_seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seller"
+            android:textColor="@color/colorPrimaryDark"
+            android:onClick="onRadioButtonClicked"
+            android:buttonTint="@color/colorPrimaryDark"
+            />
+    </RadioGroup>
 
 
     <Button
@@ -106,10 +152,10 @@
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="Register"
-        android:layout_below="@+id/register_password"
+        android:layout_below="@+id/register_options"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/buttons"
         android:textColor="@android:color/white"
         android:textSize="17sp"
